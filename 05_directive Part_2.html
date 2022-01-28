@@ -4,34 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directives in Vue.js:</title>
+    <title>Directives in Vue.js: Part 2</title>
 </head>
 <body>
     
     <div id="ameer">
-        <h1 v-text="message"></h1>
-        <p v-html="email"></p>
-        <p v-html="title"></p>
+        <!-- v-if & v-else & v-else-if & v-once & v-show -->
+        <!-- Be careful, do not put or include an element that separates between v-if or/and v-else-f or/and v-else -->
 
-        <!-- single array -->
-        <ul> <b>My skills</b>
-            <li v-for="skill in skills">
-                {{ skill}}
-            </li>
-        </ul>
-        <!-- single array with index -->
-        <ul> <b>My skills with index</b>
-            <li v-for="(skill , index) in skills">
-                {{index +1 }} - {{ skill}}
-            </li>
-        </ul>
-        <!-- object array -->
-        <ul> <b>My cpompleted Test</b>
-            <li v-for="(test, index) in completedTest">
-                {{ index + 1 }} - My test name is {{testName}} and the result is {{testResult}} 
-            </li>
-        </ul>
+        <h1 v-if="message">{{message}}</h1>
+        <h1 v-else="message">There is not exist a message</h1>
+        
+        <p v-if="salary > 3000">hmmm, you are rich</p>
+        <p v-else-if="salary < 3000 && salary >1200 ">You are a normal person, your salary is enough for a month </p>
+        <p v-else="salary">You are poor, I hope you get better</p>
 
+        <p v-once>{{mssg_once}}</p>
+        <p v-show="message">youre message: {{message}}</p>
     </div>
 
     <script src="js/vue.js"></script>
@@ -40,23 +29,8 @@
             el: '#ameer',
             data: {
                 message: 'Welcome To Vue js Course',
-                email: '<a href="mailto:ameerabumhady@gmail.com"> Ameer</a>',
-                title: '<p style="font-size:50px;"> Palestine, Gaza </p>',
-                skills: ['HTML', 'CSS', 'JS'],
-                completedTest:[
-                    {
-                        testName: 'first Test',
-                        testResult: 70
-                    },
-                    {
-                        testName: 'second Test',
-                        testResult: 70
-                    },
-                    {
-                        testName: 'third Test',
-                        testResult: 70
-                    }
-                ],
+                salary: '5000',  
+                mssg_once: 'this message for once'     
             }
         })
     </script>
