@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods in Vue.js</title>
+</head>
+<body>
+    <!-- Methods  in Vue.js: -->
+
+    <div id="ameer">
+        <h1>Welcome to Vue.js course</h1>
+        
+        <p>Welcome {{ name.length > 4 ? name + ', We are happy to see you' : ', Name is short' }} </p>
+        <p>Welcome {{ age + ' years' }} </p>
+        <p>Welcome {{ yourAgeInDays() }} </p>
+        <p>Date : {{date}}</p>
+        <button @click="showNewDate">New Date</button>
+    
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#ameer',
+            data: {
+                name: 'ameer',
+                age: 25,
+                date: 'today',
+            },
+            methods: {
+                yourAgeInDays: function () {
+                    return 'Your Age in Days is : ' + (this.age * 365);
+                },
+                showNewDate: function(){
+                    this.date = Date();
+                }
+            }
+            
+        })
+    </script>
+
+</body>
+</html>

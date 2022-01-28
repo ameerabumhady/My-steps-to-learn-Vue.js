@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create The Vue Instance</title>
+</head>
+<body>
+    <!-- Create The Vue Instance: -->
+
+    <div id="ameer">
+        <h1>Welcome to Vue.js course</h1>
+        
+        <p>Welcome {{ name.length > 4 ? name + ', We are happy to see you' : ', Name is short' }} </p>
+        <!-- <p>Welcome {{ 'Mr ' + name }}, We are happy to see you </p> -->
+
+        <!-- Condition ? True : False -->
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#ameer',
+            // el : shortcut for key (element) in Vue.js
+            data: {
+                name: 'ameer'
+            }
+        })
+    </script>
+
+</body>
+</html>

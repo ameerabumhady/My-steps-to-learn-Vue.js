@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives in Vue.js:</title>
+</head>
+<body>
+    
+    <div id="ameer">
+        <h1 v-text="message"></h1>
+        <p v-html="email"></p>
+        <p v-html="title"></p>
+
+        <!-- single array -->
+        <ul> <b>My skills</b>
+            <li v-for="skill in skills">
+                {{ skill}}
+            </li>
+        </ul>
+        <!-- single array with index -->
+        <ul> <b>My skills with index</b>
+            <li v-for="(skill , index) in skills">
+                {{index +1 }} - {{ skill}}
+            </li>
+        </ul>
+        <!-- object array -->
+        <ul> <b>My cpompleted Test</b>
+            <li v-for="(test, index) in completedTest">
+                {{ index + 1 }} - My test name is {{testName}} and the result is {{testResult}} 
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#ameer',
+            data: {
+                message: 'Welcome To Vue js Course',
+                email: '<a href="mailto:ameerabumhady@gmail.com"> Ameer</a>',
+                title: '<p style="font-size:50px;"> Palestine, Gaza </p>',
+                skills: ['HTML', 'CSS', 'JS'],
+                completedTest:[
+                    {
+                        testName: 'first Test',
+                        testResult: 70
+                    },
+                    {
+                        testName: 'second Test',
+                        testResult: 70
+                    },
+                    {
+                        testName: 'third Test',
+                        testResult: 70
+                    }
+                ],
+            }
+        })
+    </script>
+</body>
+</html>
